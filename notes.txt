@@ -1,0 +1,554 @@
+45:36
+
+review
+
+Libreria:
+
+https://fontawesome.com/v5/download
+
+
+./fontawesome-free-5.12.0-web/css/all.min.css
+
+
+48:56
+
+
+Funcionalidad en js:
+
+
+//local data review
+
+const review = [
+    { id: 1,
+      name: "Jose Perez",
+      job: "Fullstack Developer",
+      img: "https://unsplash.com/es/fotos/QXevDflbl8A?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
+      text: 
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas vitae perferendis ullam cupiditate nemo reiciendis eveniet non eos numquam eaque est, quae mollitia iste veniam? Itaque, ipsam earum? Dolorum, quibusdam?",
+    },
+    { id: 2,
+        name: "Ana Jons",
+        job: "Web Developer",
+        img: "https://unsplash.com/es/fotos/QXevDflbl8A?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
+        text: 
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas vitae perferendis ullam cupiditate nemo reiciendis eveniet non eos numquam eaque est, quae mollitia iste veniam? Itaque, ipsam earum? Dolorum, quibusdam?",
+      },
+
+      { id: 3,
+        name: "Laura Perez",
+        job: "backend Developer",
+        img: "https://unsplash.com/es/fotos/QXevDflbl8A?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
+        text: 
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas vitae perferendis ullam cupiditate nemo reiciendis eveniet non eos numquam eaque est, quae mollitia iste veniam? Itaque, ipsam earum? Dolorum, quibusdam?",
+      }
+
+]
+
+
+//Select item  4 elementos
+
+const img = document.getElementById('person-img')
+const author = document.getElementById('author')
+const job = document.getElementById('job')
+const info = document.getElementById('info')
+
+//add the functionality buton preview
+
+const prevButton = document.querySelector('.prev-btn')
+
+const nextButton = document.querySelector('.next-btn')
+
+const randomButton = document.querySelector('.random-btn')
+
+//set starting item
+
+let currentItem = 0;
+
+//load initial item
+
+window.addEventListener('DOMContentLoaded', function() {
+    console.log("shake and bake")
+}
+)
+
+// cuando cargo la pagina dira shake and bake
+
+
+
+
+
+
+1:09
+
+IMPORTANTE
+
+// para mover la imagen y articulo de informacion tengo que declarar 2 funciones 
+
+1 para declarar el contenido. y otras para mostrarla en la pantalla de windwos para agregarla al evento. 
+
+
+
+//set starting item
+
+let currentItem = 0;
+
+//load initial item
+
+
+1)
+
+window.addEventListener('DOMContentLoaded', function () {
+
+    showPerson(currentItem)
+
+});
+
+2)
+
+//show person based on item
+
+function showPerson(person) {
+
+    const item = review[currentItem];
+
+    img.src = item.img;
+    
+    author.textContent = item.name;
+
+    job.textContent = item.job;
+    
+    info.textContent = item.text;
+
+}
+
+
+
+1:05
+
+
+// El js quedaria asi:
+
+//local data review
+
+const review = [
+
+    {
+        id: 1,
+        name: "Jose Perez",
+        job: "Fullstack Developer",
+        img: "https://unsplash.com/es/fotos/QXevDflbl8A?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
+        text:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas vitae perferendis ullam cupiditate nemo reiciendis eveniet non eos numquam eaque est, quae mollitia iste veniam? Itaque, ipsam earum? Dolorum, quibusdam?",
+    },
+    {
+        id: 2,
+        name: "Ana Jons",
+        job: "Web Developer",
+        img: "https://unsplash.com/es/fotos/QXevDflbl8A?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
+        text:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas vitae perferendis ullam cupiditate nemo reiciendis eveniet non eos numquam eaque est, quae mollitia iste veniam? Itaque, ipsam earum? Dolorum, quibusdam?",
+    },
+
+    {
+        id: 3,
+        name: "Laura Perez",
+        job: "backend Developer",
+        img: "https://unsplash.com/es/fotos/QXevDflbl8A?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
+        text:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas vitae perferendis ullam cupiditate nemo reiciendis eveniet non eos numquam eaque est, quae mollitia iste veniam? Itaque, ipsam earum? Dolorum, quibusdam?",
+    }
+
+]
+
+
+//Select item  4 elementos
+
+const img = document.getElementById('person-img')
+const author = document.getElementById('author')
+const job = document.getElementById('job')
+const info = document.getElementById('info')
+
+//add the functionality button preview
+
+const prevBtn = document.querySelector('.prev-btn')
+
+const nextBtn = document.querySelector('.next-btn')
+
+const randomBtn = document.querySelector('.random-btn')
+
+//set starting item
+
+let currentItem = 0;
+
+//load initial item
+
+window.addEventListener('DOMContentLoaded', function () {
+
+    showPerson()
+
+});
+
+//show person based on item
+
+function showPerson() {
+
+    const item = review[currentItem];
+
+    img.src = item.img;
+    
+    author.textContent = item.name;
+
+    job.textContent = item.job;
+    
+    info.textContent = item.text;
+
+}
+
+//show next person button
+
+
+nextBtn.addEventListener("click", function () {
+
+    currentItem++;
+
+    if (currentItem > review.length - 1) {
+
+        currentItem = 0;
+
+    }
+
+    showPerson();
+
+});
+
+
+//show prev person button
+
+prevBtn.addEventListener("click", function () {
+
+    currentItem--;
+
+    if (currentItem < 0) {
+
+        currentItem = review.length - 1;
+
+    }
+
+    showPerson();
+
+})
+
+
+
+// agrego el random person
+
+
+1.10
+
+randomBtn.addEventListener("click", function () {
+
+	currentItem = Math.floor(Math.random() * review.length)
+
+	console.log(currentItem);
+	showPerson();
+
+
+});
+
+
+
+stylo CSS
+*****************************************
+
+
+
+/*
+=============== 
+Fonts
+===============
+*/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(205, 86%, 17%);
+  --clr-primary-2: hsl(205, 77%, 27%);
+  --clr-primary-3: hsl(205, 72%, 37%);
+  --clr-primary-4: hsl(205, 63%, 48%);
+  /* primary/main color */
+  --clr-primary-5: hsl(205, 78%, 60%);
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(205, 89%, 70%);
+  --clr-primary-7: hsl(205, 90%, 76%);
+  --clr-primary-8: hsl(205, 86%, 81%);
+  --clr-primary-9: hsl(205, 90%, 88%);
+  --clr-primary-10: hsl(205, 100%, 96%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: #fff;
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-green-dark: hsl(125, 67%, 44%);
+  --clr-green-light: hsl(125, 71%, 66%);
+  --clr-black: #222;
+  --ff-primary: "Roboto", sans-serif;
+  --ff-secondary: "Open Sans", sans-serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--ff-secondary);
+  background: var(--clr-grey-10);
+  color: var(--clr-grey-1);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-family: var(--ff-primary);
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-grey-5);
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+/*  global classes */
+
+/* section */
+.section {
+  padding: 5rem 0;
+}
+
+.section-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+}
+@media screen and (min-width: 992px) {
+  .section-center {
+    width: 95vw;
+  }
+}
+main {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+/*
+=============== 
+Reviews
+===============
+*/
+main {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.underline {
+  height: 0.25rem;
+  width: 5rem;
+  background: var(--clr-primary-5);
+  margin-left: auto;
+  margin-right: auto;
+}
+.container {
+  width: 80vw;
+  max-width: var(--fixed-width);
+}
+.review {
+  background: var(--clr-white);
+  padding: 1.5rem 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--light-shadow);
+  transition: var(--transition);
+  text-align: center;
+}
+.review:hover {
+  box-shadow: var(--dark-shadow);
+}
+.img-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+}
+#person-img {
+  width: 100%;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+}
+.img-container::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f10e";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transform: translateY(25%);
+  background: var(--clr-primary-5);
+  color: var(--clr-white);
+}
+.img-container::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--clr-primary-5);
+  position: absolute;
+  top: -0.25rem;
+  right: -0.5rem;
+  border-radius: 50%;
+}
+#author {
+  margin-bottom: 0.25rem;
+}
+#job {
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  color: var(--clr-primary-5);
+  font-size: 0.85rem;
+}
+#info {
+  margin-bottom: 0.75rem;
+}
+.prev-btn,
+.next-btn {
+  color: var(--clr-primary-7);
+  font-size: 1.25rem;
+  background: transparent;
+  border-color: transparent;
+  margin: 0 0.5rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.prev-btn:hover,
+.next-btn:hover {
+  color: var(--clr-primary-5);
+}
+.random-btn {
+  margin-top: 0.5rem;
+  background: var(--clr-primary-10);
+  color: var(--clr-primary-5);
+  padding: 0.25rem 0.5rem;
+  text-transform: capitalize;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  border-color: var(--clr-primary-5);
+  cursor: pointer;
+}
+.random-btn:hover {
+  background: var(--clr-primary-5);
+  color: var(--clr-primary-1);
+}
+
+
+\
+
+
+https://vanilla-js-basic-project-3-reviews.netlify.app/fontawesome-free-5.12.0-web/css/all.min.css
+
+
+
+
+fontawesome-free-5.12.0-web
+
+
+
+
+
+
+
